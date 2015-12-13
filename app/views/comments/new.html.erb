@@ -1,0 +1,28 @@
+<%= render :partial => "users/header", :locals => {} %>
+
+<img src="/images/<%= @photo.file_name %>" style="width:200px" />
+<% if @user.errors.any? %>
+	<div id="error-message">
+		<p>( ! ) Errors:</p>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<hr>
+
+<%= form_tag("/comments/create/" + @photo.id.to_s, :method => "post") do %>
+	<%= label_tag(:new_comment, "New Comment:") %></br>
+	<%= text_area_tag(:new_comment) %></br>
+	<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  	<% end %>
+	<%= submit_tag("Create Comment") %>
+<% end %>
+
+<hr>
+<div>
+<a href="/photos/index/<%= @photo.user_id %>"> Back to <%= photo_owner_lookup(@photo.user_id) %>'s Pictures</a>
+</div>

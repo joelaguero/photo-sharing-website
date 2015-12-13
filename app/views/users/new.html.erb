@@ -1,0 +1,41 @@
+<!-- Header partial -->
+<%= render :partial => "users/header", :locals => {} %>
+
+<!-- Display errors if there are any from the controller -->
+<% if @user.errors.any? %>
+<div id="error-message">
+	<p>( ! ) Errors:</p>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+&nbsp;
+
+<!-- Display registration form -->
+<div>
+	<h2>Registration</h2>
+	<%= form_for(:register, :html => {:multipart => true}, :url => "/users/create/" ) do |form| %>
+		<%= label_tag("First Name:") %></br>
+		<%= form.text_field(:first_name) %></br></br>		
+		<%= label_tag("Last Name:") %></br>
+		<%= form.text_field(:last_name) %></br></br>
+		<%= label_tag("Login:") %></br>
+		<%= form.text_field(:login) %></br></br>
+		<%= label_tag("Password:") %></br>
+		<%= form.password_field(:password) %></br></br>
+		<%= label_tag("Confirm Password:") %></br>
+		<%= form.password_field(:password_confirm) %></br></br>
+		<% if flash[:notice] %>
+	    <div class="notice"><%= flash[:notice] %></div>
+	  	<% end %>
+		<%= submit_tag("Register") %></br></br>
+	<% end %>
+</div>
+<hr>
+<!-- Display login link -->
+<div>
+	<a href="/users/login/" /a>Login</a>
+</div>

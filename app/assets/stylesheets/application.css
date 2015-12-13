@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+#header-name {
+	text-decoration: none;
+}
+
+#list-pic {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	position: relative;
+	top: 18px;
+}
+
+#header-pic {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	margin-right: 5px;
+	margin-left: -4px;
+	margin-top: -4px;
+	margin-bottom: -4px;
+}
+
+input {
+ 	border-radius: 2px;
+ }
+
+#login-form {
+	background-color: black;
+	border-radius: 5px;
+	padding: 15px;
+	color: white;
+	width: 200px;
+	margin: auto;
+	margin-top: 40px;
+	opacity: .8;
+}
+
+#register-link {
+	color: white;
+	font-size: 11px;
+}
+
+#register-link:hover {
+	color: gray;
+}
+
+.notice {
+	color: green;
+	font-style: italic;
+	font-size: 12px;
+}
+
+#user-nav {
+	background-color: black;
+	color: white;
+	padding: 10px;
+	margin-top: 0px;
+	border-radius: 5px;
+	top: 10px;
+	position: relative;
+}
+
+#user-nav a {
+	color: white;
+}
+
+#user-nav a:hover {
+	color: lightgray;
+}
+
+#user-nav .log {
+	float: right;
+}
+
+a {
+	color: gray;
+}
+
+a:hover {
+	color: darkgray;
+}
+
+#error-message {
+	background-color: #F08080;
+	color: #8C1717;
+	border: 1px dashed #B22222;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#error-message p {
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+body {
+	font-family: Helvetica;
+	font-size: 14px;
+
+}
+
+#home-page {
+	background-position: fixed;
+	background: url(summer-sunset.jpg);
+	background-size: auto 250%;
+}
+
+.top {
+	display: block;
+	text-align: center;
+	opacity: .8;
+	background-size: 100%;
+	background-color: black;
+	border: 5px black solid;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-size: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h3 {
+	font-size: 25px;
+	margin: 12px;
+}
+
+#main-quote {
+	font-size: 25px;
+	color: white;
+	padding: 30px;
+	background-color: black;
+	opacity: .6;
+}

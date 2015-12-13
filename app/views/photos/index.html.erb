@@ -1,0 +1,20 @@
+<%= render :partial => "users/header", :locals => {} %>
+
+
+<h1><%= @user.first_name + " " + @user.last_name %></h1>
+<% @photos.each do |photo| %>
+<hr><br>
+<img src="/images/<%= photo.file_name %>" style="width:300px" />
+	<div>Posted on <%= photo.date_time %></div>
+	<div><a href="/comments/new/<%= photo.id %>">New Comment</a></div>
+	<div>&nbsp;</div>
+	<div>
+		<% photo.comments.each do |comment| %>
+			<div><i><%= comment.date_time %></i></div>
+			<div><% @commentOwner = comment_owner_lookup(comment.user_id) %>
+			<a href="/photos/index/<%= comment.user_id %>"><%= @commentOwner.first_name + " " + @commentOwner.last_name %></a>:
+			</div>
+			<div><%= comment.comment %></div>
+			<div>&nbsp;</div>
+		<% end %>
+<% end %>

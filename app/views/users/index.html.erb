@@ -1,0 +1,12 @@
+<!-- Header partial -->
+<%= render :partial => "users/header", :locals => {} %>
+
+<!-- Display existing users -->
+<h1>Existing Users</h1>
+<p>Click a name to visit their profile.</p>
+
+	<!-- For each user, show their thumbnail (enlarged) and link to their profile -->
+	<% @users.each do |user| %>
+	<img id="list-pic" src=<%= getUserPhoto(user.id) %> />
+	<a href="/photos/index/<%= user.id %>" ><%= user.first_name %> <%= user.last_name %></a><br><br>
+	<% end %>

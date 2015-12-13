@@ -1,0 +1,35 @@
+<!-- Header partial at the top of every page -->
+
+<link href="/assets/stylesheets/application.css" type="text/css" />
+
+<div id="user-nav">
+
+	<% if @current_user != nil then %>
+
+	<!-- Thumnbnail and name for logged in user -->
+	<img id="header-pic" src="<%= getUserPhoto(@current_user.id) %>" />Hi <a id="header-name"href="/photos/index/<%= @current_user.id %>"><%= @current_user.first_name %></a>! 	
+
+	<!-- User nav features when logged in -->
+	<div class="log"> 
+		<a id="home" href="/users/index">View Users</a>&nbsp;&middot;
+		<a href="/photos/new">New Photo</a>&nbsp;&middot;
+		<a href="/users/logout/">Logout</a>
+	</div>
+
+	<% else %>
+	&nbsp;
+
+	<!-- User nav features when logged out -->
+	<div class="log"> 
+		<a id="home" href="/users/index">View Users</a>&nbsp;&middot;
+		<a href="/users/login/">Login</a>
+	</div>
+
+	<% end %>
+
+</div>
+
+<!-- "The most beautiful sentence in the English language" (just to keep things interesting) -->
+<div class="top">
+	<h1 id="main-quote"><i>"The heaventree of stars hung with humid nightblue fruit."</i></h1>
+</div>

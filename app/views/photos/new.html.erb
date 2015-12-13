@@ -1,0 +1,41 @@
+<!-- Header partial -->
+<%= render :partial => "users/header", :locals => {} %>
+
+<!-- Display errors from controller if exist -->
+<% if @user.errors.any? %>
+<div id="error-message">
+	<p>( ! ) Errors:</p>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+&nbsp;
+
+<!-- Upload photo form -->
+<div>
+	<%= form_for(:upload, :html => {:multipart => true}, :url => "/photos/create/" ) do |form| %>
+		<%= label_tag("Upload Photo:") %></br></br>
+		&nbsp;&nbsp;
+		<%= form.file_field(:photo) %></br></br>
+		<% if flash[:notice] %>
+	    <div class="notice"><%= flash[:notice] %></div>
+	  	<% end %>
+		<%= submit_tag("Upload") %></br></br>
+	<% end %>
+</div>
+<hr>
+<!-- If user logged in show link to profile -->
+<% if session["user_id"] != -1 then %>
+<div>
+	<a href="/photos/index/<%= session["user_id"] %>">My Profile</a>
+</div>
+
+<!-- If no login show login link -->
+<% else %>
+<div>
+	<a href="/users/login/" /a>Login</a>
+</div>
+<% end %>

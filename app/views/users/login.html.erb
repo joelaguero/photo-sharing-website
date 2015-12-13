@@ -1,0 +1,39 @@
+<html>
+<head>
+	<!-- Header partial -->
+	<%= render :partial => "header", :locals => {} %>
+</head>
+
+<!-- Home page -->
+<body id="home-page">
+	<!-- Display errors -->
+	<% if @user.errors.any? %>
+		<div id="error-message">
+			<p>( ! ) Errors:</p>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<!-- Login form -->
+	<div id="login-form">
+		<div id="login-form-inner">
+			<%= form_tag("/users/post_login", :method => "post") do %>
+				<%= label_tag(:text_val, "Login:") %><br>
+				<%= text_field_tag(:text_val) %><br><br>
+				<%= label_tag(:password, "Password:") %><br>
+				<%= password_field_tag(:password) %><br><br>
+				<%= submit_tag("Login") %>
+			<% end %>
+
+			<br>
+			<div style="text-align: right">
+				<a id="register-link"href="/users/new" >New user? Register! </a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
